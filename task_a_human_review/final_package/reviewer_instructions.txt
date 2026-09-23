@@ -1,0 +1,182 @@
+MANDARIN TRANSLATION HUMAN-REVIEW INSTRUCTIONS
+
+PURPOSE
+-------
+You are evaluating translation quality for a bilingual
+English/Mandarin dataset.
+
+Each row contains:
+
+1. Review ID
+2. Example ID
+3. Translation direction
+4. Source text
+5. Candidate translation
+6. Reference translation
+7. Human score
+8. Reviewer comment
+
+
+WHAT TO SCORE
+-------------
+Evaluate the CANDIDATE TRANSLATION against the SOURCE TEXT.
+
+The goal is to determine how successfully the candidate
+translates the source into the required target language.
+
+For EN -> ZH:
+    Source language: English
+    Target language: Mandarin Chinese
+
+For ZH -> EN:
+    Source language: Mandarin Chinese
+    Target language: English
+
+
+IMPORTANT: REFERENCE TRANSLATION
+--------------------------------
+The reference translation is provided only as an aid.
+
+Do NOT assume that the reference is perfect.
+
+The candidate does NOT need to use the same wording as the
+reference.
+
+If the candidate is a faithful and natural translation of the
+source, it can receive the highest score even when it differs
+from the reference.
+
+
+SCORING SCALE
+-------------
+4 - EXCELLENT
+
+The candidate accurately preserves the source meaning and is
+natural and understandable in the target language.
+
+No meaningful translation error is present.
+
+Minor stylistic or punctuation differences that do not affect
+quality are acceptable.
+
+
+3 - GOOD
+
+The main source meaning is preserved.
+
+There may be a minor mistranslation, omission, awkward phrase,
+grammar issue, or fluency problem, but the central meaning
+remains correct and understandable.
+
+
+2 - FAIR
+
+The candidate communicates part or most of the source meaning,
+but contains a noticeable translation problem.
+
+Examples include a meaningful omission, addition,
+mistranslation, or fluency problem.
+
+The translation remains partially useful.
+
+
+1 - POOR
+
+The candidate preserves only a limited portion of the source
+meaning or contains major translation errors.
+
+Important information is missing, incorrect, or seriously
+distorted.
+
+
+0 - FAILED
+
+The candidate is unusable as a translation of the source.
+
+Examples include:
+
+- wrong-language output
+- copying the source instead of translating it
+- unrelated output
+- nearly complete loss of source meaning
+- severe nonsense
+
+
+WHAT TO CONSIDER
+----------------
+Consider the following when choosing the overall score:
+
+1. Meaning preservation
+2. Completeness
+3. Target-language quality
+4. Meaning-changing errors
+
+Pay particular attention to:
+
+- omissions
+- unsupported additions
+- incorrect entities
+- incorrect numbers or quantities
+- incorrect actions or relationships
+- negation/polarity errors
+- wrong-language output
+- source copying
+
+
+SCORING RULES
+-------------
+Use exactly ONE integer score:
+
+    0, 1, 2, 3, or 4
+
+Do not use:
+
+    3.5
+    2.5
+    percentages
+    letter grades
+
+Judge the source meaning, not word-for-word similarity to the
+reference.
+
+Do not penalize a valid alternative translation simply because
+it differs from the reference.
+
+Do not reward a candidate merely because it resembles the
+reference if it fails to translate the source correctly.
+
+
+COMMENTS
+--------
+For scores 0 or 1:
+    A brief reviewer comment is REQUIRED.
+
+For score 2:
+    A brief reviewer comment is RECOMMENDED.
+
+For scores 3 or 4:
+    A comment is OPTIONAL.
+
+Useful comment descriptions include:
+
+    omission
+    addition
+    mistranslation
+    wrong language
+    source copy
+    fluency
+    entity/number error
+    polarity error
+    unrelated output
+
+
+FINAL CHECK BEFORE SUBMISSION
+-----------------------------
+For every row:
+
+1. Read the source.
+2. Read the candidate translation.
+3. Use the reference only as supporting context.
+4. Select one score from 0 to 4.
+5. Add a comment when required.
+6. Continue until every row has a score.

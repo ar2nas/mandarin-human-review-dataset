@@ -1,0 +1,106 @@
+{
+  "acceptance_criteria": {
+    "additional_examples_selected": true,
+    "independent_source_used": true,
+    "provenance_recorded": true,
+    "range_of_quality_levels_created": true,
+    "reviewer_data_blinded": true,
+    "reviewer_instructions_defined": true,
+    "scoring_rubric_defined": true,
+    "target_set_upfront": true
+  },
+  "actual_counts": {
+    "en-zh": 100,
+    "total": 200,
+    "zh-en": 100
+  },
+  "created_utc": "2026-09-23T21:17:39+00:00",
+  "dataset_name": "mandarin_human_review",
+  "dataset_version": "v1.0",
+  "excluded_sources": [
+    "Helsinki-NLP/opus-100",
+    "RicardoRei/wmt-sqm-human-evaluation"
+  ],
+  "files": {
+    "human_review_rubric.json": {
+      "sha256": "e9cfb121f05d59a2b4800743b9ac1c6f42c0653e90adeb69b70f7f9b47ff5532"
+    },
+    "mandarin_human_review_internal_metadata.csv": {
+      "sha256": "b56ccfbe733cda06832ee80012369563a071cda65e3a533c48e6fa1a1b4693d7"
+    },
+    "mandarin_human_review_internal_metadata.jsonl": {
+      "sha256": "c3c96aacdba4a6de5828822d92d32d56f8cbe8f8c31ecce5fcd831acbd1af7b7"
+    },
+    "mandarin_human_review_reviewer.csv": {
+      "sha256": "eb5bdc56a431a0f288e77d04c7dbe0c52caa52aa8750a8cd1d2c8f8d1e6b7309"
+    },
+    "mandarin_human_review_reviewer.jsonl": {
+      "sha256": "68059754010e797986d14210956014e1ee4f815344c18e34e3221236e6fbf732"
+    },
+    "reviewer_instructions.txt": {
+      "sha256": "405d6703085f4341e23631fc96ba0a79ba186642e333b057d7f55622cac55427"
+    },
+    "task_config.json": {
+      "sha256": "bec64478053d7b1512532b46fb59e0f54395ffa121e517ee5b5b2d6f769096e5"
+    }
+  },
+  "human_score_role": "authoritative_fresh_review_label",
+  "human_score_scale": {
+    "allowed": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "maximum": 4,
+    "minimum": 0,
+    "type": "integer"
+  },
+  "internal_quality_distribution": {
+    "en-zh": {
+      "high": 25,
+      "low": 25,
+      "medium": 25,
+      "very_low": 25
+    },
+    "zh-en": {
+      "high": 25,
+      "low": 25,
+      "medium": 25,
+      "very_low": 25
+    }
+  },
+  "quality_bucket_role": "internal_sampling_and_construction_only",
+  "random_seed": 42,
+  "reviewer_blinding": {
+    "candidate_generation_method_hidden": true,
+    "internal_quality_bucket_hidden": true,
+    "source_provenance_hidden": true
+  },
+  "separation_policy": {
+    "reuse_existing_judge_calibration_examples": false,
+    "reuse_finetuning_examples": false,
+    "reuse_prompt_validation_examples": false,
+    "reuse_sealed_final_test_examples": false
+  },
+  "source": {
+    "config": null,
+    "dataset": "FradSer/OpenSubtitles-en-zh-cn-20m",
+    "source_type": "independent_bilingual_subtitle_corpus",
+    "split": "train"
+  },
+  "targets": {
+    "en-zh": 100,
+    "total": 200,
+    "zh-en": 100
+  },
+  "task": "Task A: Prepare A Mandarin Dataset For Human Review",
+  "traceability": {
+    "candidate_generation_method_recorded": true,
+    "original_bilingual_pair_recorded": true,
+    "source_dataset_recorded": true,
+    "source_record_id_recorded": true,
+    "source_split_recorded": true
+  }
+}

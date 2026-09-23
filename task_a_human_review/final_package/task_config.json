@@ -1,0 +1,345 @@
+{
+  "acceptance_criteria_status": {
+    "additional_examples_selected": true,
+    "independent_source_used": true,
+    "provenance_recorded": true,
+    "range_of_quality_levels_created": true,
+    "reviewer_data_blinded": true,
+    "reviewer_instructions_defined": true,
+    "scoring_rubric_defined": true,
+    "target_set_upfront": true
+  },
+  "config_sha256": "d9bb0f89f6745cfd42a6a452d781b88a8f351e7c50753973144a1d6c12cae736",
+  "created_at_utc": "2026-09-23T21:06:10.821192+00:00",
+  "data_separation_policy": {
+    "reuse_existing_judge_calibration_examples": false,
+    "reuse_finetuning_examples": false,
+    "reuse_prompt_validation_examples": false,
+    "reuse_sealed_final_test_examples": false
+  },
+  "dataset_name": "mandarin_human_review",
+  "dataset_version": "v1.0",
+  "directions": {
+    "en-zh": {
+      "source_language": "English",
+      "target_language": "Mandarin Chinese"
+    },
+    "zh-en": {
+      "source_language": "Mandarin Chinese",
+      "target_language": "English"
+    }
+  },
+  "eligible_pool": {
+    "acceptance_rate": 0.683293474547318,
+    "eligible_pool_target": 2000,
+    "eligible_records": 2000,
+    "filtering_is_quality_scoring": false,
+    "filters": {
+      "maximum_chinese_characters": 80,
+      "maximum_chinese_latin_ratio": 0.3,
+      "maximum_english_tokens": 40,
+      "minimum_chinese_characters": 4,
+      "minimum_english_tokens": 4,
+      "reject_markup": true,
+      "reject_source_copy": true,
+      "reject_urls": true,
+      "remove_duplicates": true,
+      "remove_invisible_unicode": true
+    },
+    "max_records_to_inspect": 20000,
+    "records_inspected": 2927,
+    "rejection_counts": {
+      "chinese_english_contamination": 167,
+      "chinese_markup": 2,
+      "chinese_too_short": 81,
+      "empty": 2,
+      "english_too_short": 675
+    },
+    "sampling_method": "deterministic_random_original_row_indices",
+    "seed": 42,
+    "source_config": null,
+    "source_dataset": "FradSer/OpenSubtitles-en-zh-cn-20m",
+    "source_record_id_definition": "Original zero-based row index in the OpenSubtitles train split",
+    "source_split": "train"
+  },
+  "excluded_sources": [
+    "Helsinki-NLP/opus-100",
+    "RicardoRei/wmt-sqm-human-evaluation"
+  ],
+  "final_base_selection": {
+    "candidate_translations_created": false,
+    "direction_counts": {
+      "en-zh": 100,
+      "zh-en": 100
+    },
+    "eligible_pool_size": 2000,
+    "quality_buckets_assigned": false,
+    "selected_total": 200,
+    "selection_method": "deterministic_random_without_replacement",
+    "selection_seed": 142,
+    "target_per_direction": 100,
+    "underlying_pairs_reused_across_directions": false,
+    "unique_underlying_source_records": 200
+  },
+  "final_package": {
+    "internal_csv": "mandarin_human_review_internal_metadata.csv",
+    "internal_jsonl": "mandarin_human_review_internal_metadata.jsonl",
+    "reviewer_csv": "mandarin_human_review_reviewer.csv",
+    "reviewer_instructions": "reviewer_instructions.txt",
+    "reviewer_jsonl": "mandarin_human_review_reviewer.jsonl",
+    "rubric_json": "human_review_rubric.json"
+  },
+  "human_review_rubric": {
+    "allowed_scores": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "comment_policy": {
+      "instruction": "For scores 0 or 1, briefly identify the main reason for the low score. For score 2, a short explanation is recommended. Comments for scores 3 and 4 are optional.",
+      "optional_for_scores": [
+        3,
+        4
+      ],
+      "recommended_for_scores": [
+        2
+      ],
+      "required_for_scores": [
+        0,
+        1
+      ]
+    },
+    "dataset_name": "mandarin_human_review",
+    "dataset_version": "v1.0",
+    "decision_rules": [
+      "Judge the candidate primarily against the source text. Do not score based only on similarity to the reference.",
+      "Use the reference translation as supporting context. The reference may contain awkward wording, omissions, or other imperfections.",
+      "A candidate may deserve a score of 4 even when its wording differs from the reference, provided it faithfully translates the source.",
+      "Do not penalize harmless differences in wording, punctuation, capitalization, or style unless they reduce meaning, clarity, or naturalness.",
+      "Penalize omissions or additions according to how much important source meaning they affect.",
+      "Meaning-changing errors such as incorrect negation, entities, quantities, actions, or relationships should receive a substantial penalty.",
+      "If the candidate simply copies the source and therefore fails to translate it into the required target language, assign score 0.",
+      "If the output is primarily in the wrong target language and is not a valid translation, assign score 0.",
+      "Use exactly one integer score from 0 through 4. Do not use decimal or half-point scores.",
+      "If uncertain between two adjacent scores, choose the lower score when the uncertainty concerns preservation of source meaning; otherwise choose the score that best matches the rubric definitions."
+    ],
+    "direction_guidance": {
+      "en-zh": {
+        "instruction": "Evaluate whether the Mandarin Chinese candidate faithfully translates the English source.",
+        "source_language": "English",
+        "target_language": "Mandarin Chinese"
+      },
+      "zh-en": {
+        "instruction": "Evaluate whether the English candidate faithfully translates the Mandarin Chinese source.",
+        "source_language": "Mandarin Chinese",
+        "target_language": "English"
+      }
+    },
+    "evaluation_dimensions": {
+      "completeness": "Does the candidate translate the important source content without substantial omissions or unsupported additions?",
+      "critical_errors": "Does the candidate introduce negation errors, wrong entities, wrong quantities, wrong relationships, contradictions, or other changes that materially alter the source meaning?",
+      "meaning_preservation": "Does the candidate preserve the meaning, facts, relationships, intent, and important details of the source?",
+      "target_language_quality": "Is the candidate understandable and reasonably natural in the target language?"
+    },
+    "primary_judgment": "candidate_translation_against_source_text",
+    "reference_role": "supporting_context_not_infallible_ground_truth",
+    "rubric_name": "Mandarin Translation Human Review Rubric",
+    "rubric_version": "1.0",
+    "score_max": 4,
+    "score_min": 0,
+    "score_type": "integer",
+    "scoring_rubric": {
+      "0": {
+        "definition": "The candidate is unusable as a translation of the source. Examples include wrong-language output, copying the source instead of translating it, unrelated output, nearly complete loss of meaning, or severe nonsense.",
+        "label": "Failed"
+      },
+      "1": {
+        "definition": "The candidate preserves only a limited portion of the source meaning or contains major translation errors. Important information is missing, wrong, or seriously distorted.",
+        "label": "Poor"
+      },
+      "2": {
+        "definition": "The candidate communicates part or most of the source meaning, but contains a noticeable error, omission, addition, mistranslation, or fluency problem. Important information may be affected, but the translation remains partially useful.",
+        "label": "Fair"
+      },
+      "3": {
+        "definition": "The candidate preserves the main source meaning and is understandable, but contains a minor error or awkwardness. The issue does not materially change the central meaning.",
+        "label": "Good"
+      },
+      "4": {
+        "definition": "The candidate accurately preserves the source meaning and is natural and understandable in the target language. No meaningful translation error is present. Very small stylistic or punctuation differences that do not affect quality are allowed.",
+        "label": "Excellent"
+      }
+    },
+    "suggested_error_tags": {
+      "addition": "The candidate adds unsupported information.",
+      "entity_or_number": "A person, place, object, date, number, quantity, or other important detail is incorrect.",
+      "fluency": "Target-language wording is difficult, unnatural, or grammatically problematic.",
+      "mistranslation": "Source content is translated with the wrong meaning.",
+      "omission": "Important source information is missing.",
+      "polarity": "Negation or affirmation is reversed or distorted.",
+      "source_copy": "The source was copied rather than translated.",
+      "unrelated": "Candidate meaning is largely unrelated to the source.",
+      "wrong_language": "Output is primarily in the wrong target language."
+    }
+  },
+  "quality_construction": {
+    "all_non_high_candidates_differ_from_reference": true,
+    "bucket_definitions": {
+      "high": "No intentional degradation; reference translation is preserved.",
+      "low": "Substantial partial omission that removes meaningful translation content while preserving some meaning.",
+      "medium": "Mostly correct translation with a small observable surface, fluency, or low-content omission.",
+      "very_low": "Major failure such as severe omission or wrong-language/source-copy output."
+    },
+    "buckets": [
+      "high",
+      "medium",
+      "low",
+      "very_low"
+    ],
+    "candidate_generation_methods": {
+      "meaningful_content_word_omission": 3,
+      "minor_discourse_particle_omission": 1,
+      "minor_function_character_omission": 9,
+      "minor_function_word_omission": 1,
+      "minor_punctuation_omission": 16,
+      "minor_single_character_omission": 8,
+      "minor_terminal_punctuation_omission": 15,
+      "reference_preserved_no_intentional_error": 50,
+      "severe_translation_omission": 24,
+      "substantial_contiguous_content_omission": 47,
+      "wrong_language_source_copy": 26
+    },
+    "examples_per_bucket_per_direction": 25,
+    "internal_buckets_are_human_labels": false,
+    "quality_counts": {
+      "en-zh:high": 25,
+      "en-zh:low": 25,
+      "en-zh:medium": 25,
+      "en-zh:very_low": 25,
+      "zh-en:high": 25,
+      "zh-en:low": 25,
+      "zh-en:medium": 25,
+      "zh-en:very_low": 25
+    },
+    "quality_seed": 242,
+    "reviewer_should_see_generation_method": false,
+    "reviewer_should_see_internal_bucket": false
+  },
+  "quality_targets": {
+    "high": 0.25,
+    "low": 0.25,
+    "medium": 0.25,
+    "very_low": 0.25
+  },
+  "required_provenance_fields": [
+    "example_id",
+    "direction",
+    "source_dataset",
+    "source_config",
+    "source_split",
+    "source_record_id",
+    "source_language",
+    "target_language",
+    "original_source_text",
+    "original_reference_text",
+    "candidate_generation_method",
+    "internal_quality_bucket",
+    "dataset_version"
+  ],
+  "review_packaging": {
+    "direction_counts": {
+      "en-zh": 100,
+      "zh-en": 100
+    },
+    "generation_method_hidden": true,
+    "human_score_initialized_blank": true,
+    "internal_fields": [
+      "review_id",
+      "example_id",
+      "direction",
+      "source_language",
+      "target_language",
+      "source_dataset",
+      "source_config",
+      "source_split",
+      "source_record_id",
+      "original_source_text",
+      "original_reference_text",
+      "reference_translation",
+      "candidate_translation",
+      "internal_quality_bucket",
+      "candidate_generation_method",
+      "dataset_version"
+    ],
+    "internal_quality_hidden": true,
+    "internal_rows": 200,
+    "provenance_hidden_from_reviewer": true,
+    "reviewer_comment_initialized_blank": true,
+    "reviewer_fields": [
+      "review_id",
+      "example_id",
+      "direction",
+      "source_text",
+      "candidate_translation",
+      "reference_translation",
+      "human_score",
+      "reviewer_comment"
+    ],
+    "reviewer_rows": 200,
+    "shuffle_method": "deterministic_random_shuffle",
+    "shuffle_seed": 342
+  },
+  "reviewer_instructions_defined": true,
+  "reviewer_visible_fields": [
+    "example_id",
+    "direction",
+    "source_text",
+    "candidate_translation",
+    "reference_translation",
+    "human_score",
+    "reviewer_comment"
+  ],
+  "seed": 42,
+  "source_config": {
+    "dataset_config": null,
+    "dataset_name": "FradSer/OpenSubtitles-en-zh-cn-20m",
+    "intended_use": "source/reference pool for Task A",
+    "original_borrowed_source": false,
+    "source_type": "independent_bilingual_subtitle_corpus"
+  },
+  "source_independence_policy": {
+    "exclude_existing_wmt_sqm": true,
+    "new_examples_required": true,
+    "preserve_original_bilingual_pair": true,
+    "preserve_source_record_ids": true
+  },
+  "source_inspection": {
+    "available_splits": [
+      "train"
+    ],
+    "column_names": [
+      "source",
+      "target"
+    ],
+    "dataset_config": null,
+    "dataset_name": "FradSer/OpenSubtitles-en-zh-cn-20m",
+    "features": "{'source': Value('string'), 'target': Value('string')}",
+    "inspection_split": "train",
+    "num_records_in_inspection_split": 19628420
+  },
+  "target_per_direction": 100,
+  "task": "Prepare A Mandarin Dataset For Human Review",
+  "total_target": 200,
+  "traceability_policy": {
+    "record_dataset_config": true,
+    "record_dataset_name": true,
+    "record_generation_method": true,
+    "record_internal_quality_bucket": true,
+    "record_original_text": true,
+    "record_reference_text": true,
+    "record_source_record_id": true,
+    "record_source_split": true
+  }
+}
