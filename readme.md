@@ -80,23 +80,4 @@ The following files are for traceability and reproducibility and should **not be
 - `task_config.json`
 - `task_a_manifest.json`
 
-## Reproducibility
 
-The pipeline uses deterministic random seeds for source sampling, final selection, quality assignment, and reviewer shuffling.
-
-The final package also includes SHA-256 hashes for integrity verification.
-
-## Acceptance Criteria
-
-- [x] Additional examples selected independently of the original borrowed data
-- [x] Both EN→ZH and ZH→EN directions represented
-- [x] Multiple translation quality levels included
-- [x] Source provenance retained for every example
-- [x] Target count established before selection
-- [x] Reviewer-facing data blinded
-- [x] Clear reviewer instructions provided
-- [x] Defined 0–4 scoring rubric provided
-
-## Status
-
-**Task A complete — dataset ready for human review.**
